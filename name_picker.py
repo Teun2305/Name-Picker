@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue May 10 11:26:23 2022
-
 @author: teunh
 """
 
@@ -24,6 +22,7 @@ It must be formatted in yyyy-mm-dd.
 So the 23rd of May, 2022 would become 2022-05-23.
 '''
 REGISTRATION_DATE = '2022-05-09'
+# Change the year in the regex if necessary
 assert bool(search(r'^2022-[0-1][[0-9]-[0-3][0-9]$', REGISTRATION_DATE)), 'REGISTRATION_DATE is wrongly formatted';
 
 '''
