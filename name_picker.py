@@ -21,9 +21,9 @@ REGISTRATION_DATE is the date of the deadline of the registration
 It must be formatted in yyyy-mm-dd.
 So the 23rd of May, 2022 would become 2022-05-23.
 '''
-REGISTRATION_DATE = '2022-05-09'
-# Change the year in the regex if necessary
-assert bool(search(r'^2022-[0-1][[0-9]-[0-3][0-9]$', REGISTRATION_DATE)), 'REGISTRATION_DATE is wrongly formatted';
+REGISTRATION_DATE = '2022-02-30'
+assert bool(search(r'^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$', 
+                   REGISTRATION_DATE)), 'REGISTRATION_DATE is wrongly formatted'
 
 '''
 REGISTRATION_TIME is the time of the deadline, rounded to the nearest second.
@@ -31,7 +31,8 @@ It must be formatted in hh:mm:ss.
 So a quarter past two in the afternoon would become 14:15:00.
 '''
 REGISTRATION_TIME = '13:00:00'
-assert bool(search(r'^[0-2][[0-9]:[0-5][0-9]:[0-5][0-9]$', REGISTRATION_TIME)), 'REGISTRATION_TIME is wrongly formatted';
+assert bool(search(r'^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$', 
+                   REGISTRATION_TIME)), 'REGISTRATION_TIME is wrongly formatted'
 
 try:
     # Open the file with the registration data
