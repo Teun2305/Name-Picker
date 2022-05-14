@@ -18,7 +18,7 @@ This variable must be a string.
 
 You do also have to manually set the date and time of the activity's deadline.
 The date must be stored under the variable REGISTRATION_DATE in a yyyy-mm-dd format.
-The time must bu stored under the variable REGISTRATION_TIME in a hh:mm:ss format.
+The time must bu stored under the variable REGISTRATION_TIME in a hh:mm format.
 If you do not follow these formats correctly, the program will raise an assertion error.
 
 The program will create a new .txt file in the same directory as your script.
