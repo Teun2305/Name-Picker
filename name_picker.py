@@ -15,9 +15,10 @@ REGISTRATION_DATE is the date of the deadline of the registration
 It must be formatted in yyyy-mm-dd.
 So the 23rd of May, 2022 would become 2022-05-23.
 
-REGISTRATION_TIME is the time of the deadline, rounded to the nearest second.
+REGISTRATION_TIME is the time of the deadline.
 It must be formatted in hh:mm (24h format).
-So a quarter past two in the afternoon would become 14:15:00.
+So a quarter past nine in the moring would become 09:15
+And half past six in the evening would become 18:30.
 '''
 
 INPUT_FILE_NAME = 'names.txt'
@@ -38,9 +39,11 @@ try:
     f = open(INPUT_FILE_NAME, 'r')
 except OSError as ose:
     print(f'An error occured when trying to open the file\n{type(ose)}: {ose}')
+    print('Execution interupted')
     exit()
 except Exception as exc:
     print(f'An error occured when trying to open the file\n{type(exc)}: {exc}')
+    print('Execution interupted')
     exit()
 else:
     waiting_list = []
@@ -60,6 +63,7 @@ else:
     # Shuffle the people in the raffle list randomly
     shuffle(raffle)
     data = raffle + waiting_list
+    print('Data read successfully')
 finally:
     f.close()
     
@@ -73,14 +77,19 @@ try:
     f = open(OUTPUT_FILE_NAME, 'x')
 except FileExistsError:
     print(f'A file with the name {OUTPUT_FILE_NAME} already exists.')
+    print('Execution interupted')
     exit()
 except Exception as exc:
     print(f'An error occured when trying to open the file\n{type(exc)}: {exc}')
+    print('Execution interupted')
     exit()
 else:
     # Add all the names and email addresses together with their ranking number
     for i, x in enumerate(data):
         name, email, day, time = x
         f.write(f'{i+1:<{3}}\t{name:<{max_name}}\t{email:<{max_email}}\t{day} {time}\n')    
+    print(f'{OUTPUT_FILE_NAME} created successfully')
 finally:
     f.close()
+    
+print('Script executed successfully')
