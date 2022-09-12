@@ -17,7 +17,7 @@ So the 23rd of May, 2022 would become 2022-05-23.
 
 REGISTRATION_TIME is the time of the deadline.
 It must be formatted in hh:mm (24h format).
-So a quarter past nine in the moring would become 09:15
+So a quarter past nine in the morning would become 09:15
 And half past six in the evening would become 18:30.
 '''
 
@@ -38,12 +38,12 @@ assert bool(search(r'^([0-1][0-9]|2[0-3]):[0-5][0-9]$',
 try:
     f = open(INPUT_FILE_NAME, 'r')
 except OSError as ose:
-    print(f'An error occured when trying to open the file\n{type(ose)}: {ose}')
-    print('Execution interupted')
+    print(f'An error occurred when trying to open the file\n{type(ose)}: {ose}')
+    print('Execution interrupted')
     exit()
 except Exception as exc:
-    print(f'An error occured when trying to open the file\n{type(exc)}: {exc}')
-    print('Execution interupted')
+    print(f'An error occurred when trying to open the file\n{type(exc)}: {exc}')
+    print('Execution interrupted')
     exit()
 else:
     waiting_list = []
@@ -77,11 +77,11 @@ try:
     f = open(OUTPUT_FILE_NAME, 'x')
 except FileExistsError:
     print(f'A file with the name {OUTPUT_FILE_NAME} already exists.')
-    print('Execution interupted')
+    print('Execution interrupted')
     exit()
 except Exception as exc:
-    print(f'An error occured when trying to open the file\n{type(exc)}: {exc}')
-    print('Execution interupted')
+    print(f'An error occurred when trying to open the file\n{type(exc)}: {exc}')
+    print('Execution interrupted')
     exit()
 else:
     # Add all the names and email addresses together with their ranking number
