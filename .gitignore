@@ -130,3 +130,7 @@ dmypy.json
 
 # Text files
 *.txt
+
+# in-/output files
+*.in
+*.out
