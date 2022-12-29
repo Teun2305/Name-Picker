@@ -9,6 +9,7 @@ def get_time():
         return time
     except AssertionError:
         print('\nThe time was incorrectly formatted. Please try again.')
+        return get_time()
 
 
 def get_date():
@@ -38,9 +39,9 @@ for line in in_file:
     day, time = timestamp.split()
     # Select the people who signed up within the first minute
     if day == REG_DATE and time[:5] == REG_TIME:
-        first_min.append((name, email, day, time))
+        first_min.append((name, email))
     else:
-        waiting_list.append((name, email, day, time))
+        waiting_list.append((name, email))
 
 # Shuffle the people in the raffle list randomly
 shuffle(first_min)
@@ -48,14 +49,14 @@ data = first_min + waiting_list
     
 # Get values for formatting
 max_name, max_email = 0, 0
-for name, email, day, time in data:
+for name, email in data:
     max_name = max(len(name), max_name)
     max_email = max(len(email), max_email)
     
 with open(OUT, 'w') as out_file:
     # Add all the names and email addresses together with their number
     for i, line in enumerate(data):
-        name, email, day, time = line
+        name, email = line
         out_file.write(f'{i+1:<{3}}\t{name:<{max_name}}\t{email:<{max_email}}\n') 
 
 print(f'{OUT} created successfully')
